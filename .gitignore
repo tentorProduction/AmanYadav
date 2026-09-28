@@ -1,0 +1,19 @@
+# dependencies / build output
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# secrets — the git root for this folder is C:\Users\hajur, so keep env files out
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+
+# os / editor noise
+.DS_Store
+.vercel

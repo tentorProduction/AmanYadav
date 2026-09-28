@@ -1,0 +1,1 @@
+export function StatementSection() { return <section className="statement" id="about"><p className="section-number">01 / Approach</p><h2 className="statement-copy">I build digital products<br/>by combining <em>code</em>,<br/>design and problem solving.</h2><p className="statement-note">Better products.<br/>Happier users.</p></section>; }
