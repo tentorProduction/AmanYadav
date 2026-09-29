@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Aman Yadav — Full-Stack Developer";
+export const alt = "Aman Yadav — Full-Stack Developer in Janakpur, Nepal";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

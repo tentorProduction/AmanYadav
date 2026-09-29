@@ -1,1 +1,3 @@
-export function StatementSection() { return <section className="statement" id="about"><p className="section-number">01 / Approach</p><h2 className="statement-copy">I build digital products<br/>by combining <em>code</em>,<br/>design and problem solving.</h2><p className="statement-note">Better products.<br/>Happier users.</p></section>; }
+import { LOCATION, PERSON_NAME } from "@/lib/seo";
+
+export function StatementSection() { return <section className="statement" id="about"><p className="section-number">01 / Approach</p><h2 className="statement-copy">I build digital products<br/>by combining <em>code</em>,<br/>design and problem solving.</h2><p className="statement-loc">I’m {PERSON_NAME}, a full-stack developer based in {LOCATION.city}, {LOCATION.country} ({LOCATION.tzLabel}). I ship web apps, Android apps and the backend behind them — working remotely with teams anywhere.</p><p className="statement-note">Better products.<br/>Happier users.</p></section>; }

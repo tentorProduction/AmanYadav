@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
@@ -24,9 +25,18 @@ export function ContactForm() {
       return;
     }
 
+    // noValidate turns off the native bubbles, so run the same constraints by hand
+    // and move focus to the field that failed.
+    if (!form.checkValidity()) {
+      const invalid = form.querySelector<HTMLElement>(":invalid");
+      invalid?.focus();
+      setStatus("error");
+      setError("Please add your name, a valid email address, and a line or two about the project.");
+      return;
+    }
+
     setStatus("sending");
     setError(null);
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -95,11 +105,16 @@ export function ContactForm() {
         <button className="submit-button" type="submit" disabled={sending}>
           {sending ? "Sending…" : "Send message"} <span aria-hidden="true">→</span>
         </button>
-        <p className={`form-status ${status}`} role="status" aria-live="polite">
+        <p className={`form-status ${status}`} role="status" aria-live="polite" id="form-status">
           {status === "ok" && "Thanks — your message is on its way. I usually reply within a day."}
           {status === "error" && error}
         </p>
       </div>
+
+      <p className="form-consent">
+        Sending this emails me your name, address and message — that is all this site keeps. See the{" "}
+        <Link href="/privacy">privacy policy</Link>.
+      </p>
     </form>
   );
 }

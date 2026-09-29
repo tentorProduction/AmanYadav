@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { EMAIL, HOME_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_TITLE, SITE_URL, TECH_STACK } from "@/lib/seo";
+import { ALT_NAME, EMAIL, HOME_DESCRIPTION, HOME_TITLE, LOCATION, PERSON_NAME, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL, TECH_STACK } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -12,12 +13,15 @@ export const metadata: Metadata = {
   description: HOME_DESCRIPTION,
   keywords: [
     "Aman Yadav",
-    "full-stack developer",
+    "amanyadav",
+    "Aman Yadav Janakpur",
+    "Aman Yadav Nepal",
+    "full-stack developer Nepal",
+    "web developer Janakpur",
     "Next.js developer",
     "React developer",
     "TypeScript",
-    "web apps",
-    "mobile apps",
+    "Android app developer",
     "Kotlin",
     "Freelance developer portfolio",
   ],
@@ -67,13 +71,22 @@ const PERSON_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
-  name: "Aman Yadav",
+  name: PERSON_NAME,
+  alternateName: ALT_NAME,
   url: SITE_URL,
   email: EMAIL,
+  image: `${SITE_URL}/opengraph-image`,
   jobTitle: "Full-Stack Developer",
   description: HOME_DESCRIPTION,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: LOCATION.city,
+    addressRegion: LOCATION.region,
+    addressCountry: LOCATION.countryCode,
+  },
   knowsAbout: TECH_STACK,
-  contactPoint: { "@type": "ContactPoint", email: EMAIL, contactType: "customer service" },
+  sameAs: [SOCIAL.github],
+  contactPoint: { "@type": "ContactPoint", email: EMAIL, contactType: "customer service", availableLanguage: "English" },
 };
 
 const WEBSITE_JSONLD = {
@@ -82,6 +95,7 @@ const WEBSITE_JSONLD = {
   "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
   name: SITE_TITLE,
+  alternateName: "amanyadav.dev",
   description: HOME_DESCRIPTION,
   inLanguage: "en",
   publisher: { "@id": `${SITE_URL}/#person` },
@@ -91,9 +105,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://raw.githack.com" />
         <JsonLd data={[PERSON_JSONLD, WEBSITE_JSONLD]} />
       </head>
-      <body className="min-h-dvh antialiased">{children}</body>
+      <body className="min-h-dvh antialiased">
+        <a className="skip-link" href="#main">Skip to content</a>
+        {children}
+        <AnalyticsProvider />
+      </body>
     </html>
   );
 }

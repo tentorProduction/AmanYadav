@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ContactShadows, Environment, Float, MeshDistortMaterial } from "@react-three/drei";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import type { Group, Mesh } from "three";
 
 function Sculpture() {
@@ -67,9 +67,11 @@ export function ThreeBlob() {
         <ambientLight intensity={0.35} />
         <directionalLight position={[-3, 4, 5]} intensity={3.2} castShadow />
         <pointLight position={[4, 1, 3]} intensity={5} color="#ffffff" />
-        <Sculpture />
-        <ContactShadows position={[0, -1.72, 0]} opacity={0.34} scale={5} blur={2.8} far={4} />
-        <Environment preset="studio" environmentIntensity={1.2} />
+        <Suspense fallback={null}>
+          <Sculpture />
+          <ContactShadows position={[0, -1.72, 0]} opacity={0.34} scale={5} blur={2.8} far={4} />
+          <Environment preset="studio" environmentIntensity={1.2} />
+        </Suspense>
       </Canvas>
     </div>
   );

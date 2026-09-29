@@ -1,19 +1,41 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://amanyadav.dev";
 export const SITE_NAME = "Aman Yadav";
-export const SITE_TITLE = "Aman Yadav — Full-Stack Developer";
+export const SITE_TITLE = "Aman Yadav — Full-Stack Developer in Janakpur, Nepal";
 export const EMAIL = "hello@amanyadav.dev";
+
+// What the entity is called in the wild. Used for schema alternateName so
+// "amanyadav" as one word resolves to this person, not a homonym.
+export const PERSON_NAME = "Aman Yadav";
+export const ALT_NAME = "amanyadav";
+
+export const LOCATION = {
+  city: "Janakpur",
+  region: "Madhesh",
+  country: "Nepal",
+  countryCode: "NP",
+  tzLabel: "UTC+5:45",
+  tz: "Asia/Kathmandu",
+};
 
 export const HOME_TITLE = SITE_TITLE;
 export const HOME_DESCRIPTION =
-  "Aman Yadav builds distinctive, useful digital products across web, mobile, backend and systems. Seven live products, from AI video captions to browser games.";
+  "Aman Yadav is a full-stack developer based in Janakpur, Nepal, building web apps, Android apps and backend systems end to end. Seven live products, from AI video captions to browser games.";
 
 // Stable per-page content dates. Using a build timestamp would tell crawlers
 // everything changed on every deploy, which devalues lastmod.
 export const UPDATED = {
-  home: "2026-09-28",
-  projects: "2026-09-28",
-  contact: "2026-09-28",
+  home: "2026-09-30",
+  projects: "2026-09-30",
+  contact: "2026-09-30",
+  privacy: "2026-09-30",
+  terms: "2026-09-30",
 } as const;
+
+// Only links that are verified to exist. Add LinkedIn here once a real profile
+// URL is known — placeholder domains would ship as dead links.
+export const SOCIAL = {
+  github: "https://github.com/tentorProduction",
+};
 
 export const TECH_STACK = [
   "TypeScript",

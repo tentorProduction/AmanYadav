@@ -31,7 +31,7 @@ const WEBPAGE_JSONLD = {
   dateModified: UPDATED.home,
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: [".statement-copy", ".statement-note"],
+    cssSelector: [".statement-copy", ".statement-loc", ".statement-note"],
   },
 };
 
@@ -41,7 +41,7 @@ export default function Home() {
       <JsonLd data={WEBPAGE_JSONLD} />
       <MotionController />
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <Marquee />
         <StatementSection />

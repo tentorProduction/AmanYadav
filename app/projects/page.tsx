@@ -9,14 +9,14 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Seven live products built and shipped by Aman Yadav — CapGen AI captions, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way. Web apps, games and tools.",
+    "Seven live products built and shipped by Aman Yadav, a full-stack developer in Janakpur, Nepal — CapGen AI captions, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way.",
   alternates: { canonical: "/projects" },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/projects`,
     title: "Projects — 7 Live Builds by Aman Yadav",
     description:
-      "CapGen, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way — all live, all built by Aman Yadav.",
+      "CapGen, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way — all live, all built by Aman Yadav from Janakpur, Nepal.",
   },
 };
 
@@ -27,7 +27,7 @@ const PROJECTS_JSONLD = [
     "@id": `${SITE_URL}/projects#webpage`,
     url: `${SITE_URL}/projects`,
     name: "Projects — 7 Live Builds by Aman Yadav",
-    description: "Every product Aman Yadav has built and shipped that is publicly live.",
+    description: "Every product Aman Yadav has built and shipped that is publicly live — designed, coded and deployed from Janakpur, Nepal.",
     inLanguage: "en",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#person` },
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
     <>
       <JsonLd data={PROJECTS_JSONLD} />
       <Navbar />
-      <main className="page">
+      <main id="main" className="page">
         <section className="page-head">
           <p className="section-number">Portfolio / Live builds</p>
           <h1 className="page-title">

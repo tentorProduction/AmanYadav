@@ -106,5 +106,13 @@ export const faqs = [
     q: "Are the projects on the portfolio actually live?",
     a: "Yes. Every card on amanyadav.dev/projects opens the real deployed site in a new tab — capgen.app, blocksmash3d.site, cinemavortex.site, yappdf.app, qrmaker.tech, vanyacafe.vercel.app and arrowrusher.vercel.app.",
   },
+  {
+    q: "Where is Aman Yadav based?",
+    a: "Janakpur (Janakpur Dham) in the Dhanusha district of Madhesh Province, Nepal — Nepal Time, UTC+5:45. That clock suits handover with Asia, the Gulf and European afternoons.",
+  },
+  {
+    q: "Does Aman Yadav work with clients outside Nepal?",
+    a: "Yes. The work is remote-first: briefs, builds and deployments all happen over email, git and shared staging links. Clients from Kathmandu, elsewhere in Nepal, and overseas all get the same process and the same reply time.",
+  },
 ] as const;
 

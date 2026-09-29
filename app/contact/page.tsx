@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactFooter } from "@/components/ContactFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/content";
-import { EMAIL, SITE_URL, UPDATED, breadcrumbs } from "@/lib/seo";
+import { EMAIL, LOCATION, SITE_URL, SOCIAL, UPDATED, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Hire Aman Yadav, a full-stack developer building web apps, mobile apps and backend systems. Send a project brief and get a reply within a day.",
+    "Hire Aman Yadav, a full-stack developer based in Janakpur, Nepal, building web apps, mobile apps and backend systems. Send a project brief and get a reply within a day.",
   alternates: { canonical: "/contact" },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/contact`,
-    title: "Contact Aman Yadav — Full-Stack Developer",
+    title: "Contact Aman Yadav — Full-Stack Developer in Janakpur, Nepal",
     description:
       "Tell me what you're building and what done looks like. Replies usually land within a day.",
   },
@@ -26,8 +27,8 @@ const CONTACT_JSONLD = [
     "@type": "ContactPage",
     "@id": `${SITE_URL}/contact#webpage`,
     url: `${SITE_URL}/contact`,
-    name: "Contact Aman Yadav — Full-Stack Developer",
-    description: "Send a project brief to Aman Yadav, or email hello@amanyadav.dev directly.",
+    name: "Contact Aman Yadav — Full-Stack Developer in Janakpur, Nepal",
+    description: `Send a project brief to Aman Yadav in ${LOCATION.city}, ${LOCATION.country}, or email ${EMAIL} directly.`,
     inLanguage: "en",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#person` },
@@ -53,7 +54,7 @@ export default function ContactPage() {
     <>
       <JsonLd data={CONTACT_JSONLD} />
       <Navbar />
-      <main className="page">
+      <main id="main" className="page">
         <section className="page-head">
           <p className="section-number">Contact / Say hello</p>
           <h1 className="page-title">
@@ -73,6 +74,10 @@ export default function ContactPage() {
               <a className="side-value" href={`mailto:${EMAIL}`}>{EMAIL}</a>
             </div>
             <div className="side-block">
+              <p className="side-label">Based in</p>
+              <p className="side-value">{LOCATION.city}, {LOCATION.country} · {LOCATION.tzLabel}</p>
+            </div>
+            <div className="side-block">
               <p className="side-label">Reply time</p>
               <p className="side-value">Usually within a day</p>
             </div>
@@ -83,8 +88,8 @@ export default function ContactPage() {
             <div className="side-block">
               <p className="side-label">Elsewhere</p>
               <p className="side-value socials">
-                <a href="https://github.com/" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com/" rel="noopener noreferrer">LinkedIn</a>
+                <a href={SOCIAL.github} rel="noopener noreferrer">GitHub</a>
+                <Link href="/privacy">Privacy</Link>
               </p>
             </div>
           </aside>
