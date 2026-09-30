@@ -5,6 +5,10 @@ export const runtime = "nodejs";
 const LIMITS = { name: 120, email: 160, topic: 60, message: 4000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// yappdf.app (two p's) — the domain with Cloudflare MX + SPF. A third p makes
+// yapppdf.app, which has no DNS records at all and silently black-holes mail.
+const DELIVERY_INBOX = "tentorproduction@yappdf.app";
+
 // Best-effort per-process throttle. A single long-lived Node server gets a real
 // window; a scale-to-zero deployment gets a fresh map per instance.
 const hits = new Map<string, number[]>();
@@ -62,14 +66,14 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const to = process.env.CONTACT_TO_EMAIL || DELIVERY_INBOX;
   const from = process.env.CONTACT_FROM_EMAIL || "Aman Portfolio <onboarding@resend.dev>";
 
-  if (!apiKey || !to) {
+  if (!apiKey) {
     return NextResponse.json(
       {
         error:
-          "The contact form isn’t wired up yet. Set RESEND_API_KEY and CONTACT_TO_EMAIL in .env.local, then it will deliver to your inbox.",
+          "The contact form isn’t wired up yet. Set RESEND_API_KEY in .env.local (and in the Vercel project), then it will deliver to the inbox.",
       },
       { status: 501 },
     );
@@ -103,13 +107,13 @@ ${rows
       body: JSON.stringify({ from, to, reply_to: email, subject, html, text: textBody }),
     });
   } catch {
-    return NextResponse.json({ error: "Couldn’t reach the mail service. Email hello@amanyadav.dev instead." }, { status: 502 });
+    return NextResponse.json({ error: `Couldn’t reach the mail service. Email ${DELIVERY_INBOX} instead.` }, { status: 502 });
   }
 
   if (!response.ok) {
     const detail = await response.text().catch(() => "");
     console.error("contact form: resend rejected the request", response.status, detail.slice(0, 400));
-    return NextResponse.json({ error: "The mail service rejected that. Email hello@amanyadav.dev instead." }, { status: 502 });
+    return NextResponse.json({ error: `The mail service rejected that. Email ${DELIVERY_INBOX} instead.` }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });
