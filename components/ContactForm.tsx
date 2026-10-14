@@ -64,11 +64,11 @@ export function ContactForm() {
       <div className="field-row">
         <div className="field">
           <label htmlFor="name">Your name</label>
-          <input id="name" name="name" type="text" autoComplete="name" required placeholder="Aman Yadav" />
+          <input id="name" name="name" type="text" autoComplete="name" required maxLength={120} aria-describedby={status === "error" ? "form-status" : undefined} placeholder="Your name" />
         </div>
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" />
+          <input id="email" name="email" type="email" autoComplete="email" required maxLength={160} aria-describedby={status === "error" ? "form-status" : undefined} placeholder="you@company.com" />
         </div>
       </div>
 
@@ -92,6 +92,8 @@ export function ContactForm() {
           required
           rows={5}
           minLength={12}
+          maxLength={4000}
+          aria-describedby={status === "error" ? "form-status" : undefined}
           placeholder="What are you building, and what does done look like?"
         />
       </div>

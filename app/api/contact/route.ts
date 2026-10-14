@@ -73,7 +73,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "The contact form isn’t wired up yet. Set RESEND_API_KEY in .env.local (and in the Vercel project), then it will deliver to the inbox.",
+          "The contact form is temporarily unavailable. Please email hello@amanyadav.dev directly.",
       },
       { status: 501 },
     );

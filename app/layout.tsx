@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { ALT_NAME, EMAIL, HOME_DESCRIPTION, HOME_TITLE, LOCATION, PERSON_NAME, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL, TECH_STACK } from "@/lib/seo";
+import { sans, display, handwritten } from "./fonts";
+import { ALT_NAME, EMAIL, HOME_DESCRIPTION, HOME_TITLE, LOCATION, PERSON_NAME, SITE_NAME, SITE_TITLE, SITE_URL, SOCIAL, SOCIAL_IMAGE, TECH_STACK } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    images: [SOCIAL_IMAGE],
     type: "website",
     url: SITE_URL,
     siteName: "Aman Yadav — Full-Stack Developer",
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: {
+    images: [SOCIAL_IMAGE.url],
     card: "summary_large_image",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
@@ -105,14 +107,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://raw.githack.com" />
         <JsonLd data={[PERSON_JSONLD, WEBSITE_JSONLD]} />
       </head>
-      <body className="min-h-dvh antialiased">
+      <body className={`${sans.variable} ${display.variable} ${handwritten.variable} min-h-dvh antialiased`}>
         <a className="skip-link" href="#main">Skip to content</a>
         {children}
-        <AnalyticsProvider />
       </body>
     </html>
   );

@@ -1,24 +1,10 @@
-export const projects = [
-  { id: "01", name: "CapGen", tags: "AI / Video / Web App", tone: "coral" },
-  { id: "02", name: "Personal Portfolio", tags: "Full-stack / Next.js", tone: "blue" },
-  { id: "03", name: "TaskFlow", tags: "SaaS / Web Platform", tone: "lime" },
-  { id: "04", name: "Android App", tags: "Kotlin / Firebase", tone: "yellow" },
-] as const;
-
-export const figures = [
-  { value: "10+", label: "Projects", note: "and counting", color: "pink" },
-  { value: "5+", label: "Full-stack builds", note: "from zero to one", color: "blue" },
-  { value: "3+", label: "Mobile apps", note: "built to travel", color: "orange" },
-  { value: "∞", label: "Things to build", note: "still curious", color: "lime" },
-] as const;
-
 export const liveProjects = [
   {
     name: "CapGen",
     schemaCategory: "MultimediaApp",
     operatingSystem: "Web browser",
-    url: "https://capgen.app",
-    host: "capgen.app",
+    url: "https://www.capgen.app",
+    host: "www.capgen.app",
     tags: "AI / Video / Web App",
     tone: "coral",
     blurb: "Free AI caption generator for Reels, Shorts and TikTok — turn raw footage into scroll-stopping subtitles.",
@@ -83,6 +69,14 @@ export const liveProjects = [
     tone: "purple",
     blurb: "Tactile puzzle game — clear arrow labyrinths, unlock skins and rush your way to victory.",
   },
+] as const;
+
+// Counts derive from published project records, rather than invented experience totals.
+export const figures = [
+  { value: String(liveProjects.length), label: "Listed projects", note: "explore the work", color: "pink" },
+  { value: String(liveProjects.filter(p => p.operatingSystem.includes("Web browser")).length), label: "Web projects", note: "in your browser", color: "blue" },
+  { value: String(liveProjects.filter(p => p.operatingSystem.includes("Android")).length), label: "Android projects", note: "built for mobile", color: "orange" },
+  { value: "∞", label: "Ideas to explore", note: "still curious", color: "lime" },
 ] as const;
 
 export const faqs = [

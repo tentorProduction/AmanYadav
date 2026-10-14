@@ -5,20 +5,22 @@ import { ContactForm } from "@/components/ContactForm";
 import { ContactFooter } from "@/components/ContactFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { faqs } from "@/data/content";
-import { EMAIL, LOCATION, SITE_URL, SOCIAL, UPDATED, breadcrumbs } from "@/lib/seo";
+import { EMAIL, LOCATION, SITE_URL, SOCIAL, SOCIAL_IMAGE, UPDATED, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: { absolute: "Contact Aman Yadav | Full-Stack Developer in Nepal" },
   description:
-    "Hire Aman Yadav, a full-stack developer based in Janakpur, Nepal, building web apps, mobile apps and backend systems. Send a project brief and get a reply within a day.",
+    "Contact Aman Yadav in Janakpur, Nepal, about web applications, Android development, backend systems and APIs. Send your project brief or email directly.",
   alternates: { canonical: "/contact" },
   openGraph: {
+    images: [SOCIAL_IMAGE],
     type: "website",
     url: `${SITE_URL}/contact`,
     title: "Contact Aman Yadav — Full-Stack Developer in Janakpur, Nepal",
     description:
       "Tell me what you're building and what done looks like. Replies usually land within a day.",
   },
+  twitter: { card: "summary_large_image", title: "Contact Aman Yadav", description: "Discuss a web, Android or backend development project.", images: [SOCIAL_IMAGE.url] },
 };
 
 const CONTACT_JSONLD = [
@@ -33,15 +35,6 @@ const CONTACT_JSONLD = [
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#person` },
     dateModified: UPDATED.contact,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })),
   },
   breadcrumbs([
     { name: "Home", href: "/" },

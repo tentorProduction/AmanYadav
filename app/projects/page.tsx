@@ -3,21 +3,23 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { ContactFooter } from "@/components/ContactFooter";
 import { liveProjects } from "@/data/content";
-import { SITE_URL, UPDATED, breadcrumbs } from "@/lib/seo";
+import { SITE_URL, SOCIAL_IMAGE, UPDATED, breadcrumbs } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: { absolute: "Projects by Aman Yadav | Web Apps & Android Development" },
   description:
-    "Seven live products built and shipped by Aman Yadav, a full-stack developer in Janakpur, Nepal — CapGen AI captions, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way.",
+    "Explore Aman Yadav’s software portfolio, including CapGen, YapPDF, browser games, a QR code generator and a cafe booking website.",
   alternates: { canonical: "/projects" },
   openGraph: {
+    images: [SOCIAL_IMAGE],
     type: "website",
     url: `${SITE_URL}/projects`,
     title: "Projects — 7 Live Builds by Aman Yadav",
     description:
       "CapGen, Smash Ground 3D, CinemaVortex, YapPDF, QR Maker, Vanya Gaming Cafe and ArrowRusher Way — all live, all built by Aman Yadav from Janakpur, Nepal.",
   },
+  twitter: { card: "summary_large_image", title: "Projects by Aman Yadav", description: "Web applications, Android tools and browser games built by Aman Yadav.", images: [SOCIAL_IMAGE.url] },
 };
 
 const PROJECTS_JSONLD = [
@@ -72,8 +74,8 @@ export default function ProjectsPage() {
             <span className="title-line"><span className="title-line-inner">built and shipped.</span></span>
           </h1>
           <p className="page-lede">
-            Seven products that are live right now — web apps, browser and mobile games, and small tools people
-            actually use. Every card opens the real site.
+            Software projects by Aman Yadav, a full-stack developer in Janakpur, Nepal. Explore web apps,
+            Android tools, browser games and a booking website. Each project links to its public site.
           </p>
         </section>
 

@@ -3,19 +3,20 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { ContactFooter } from "@/components/ContactFooter";
 import { JsonLd } from "@/components/JsonLd";
-import { EMAIL, SITE_TITLE, SITE_URL, UPDATED, breadcrumbs } from "@/lib/seo";
+import { EMAIL, SITE_TITLE, SITE_URL, SOCIAL_IMAGE, UPDATED, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What amanyadav.dev collects: contact-form messages sent by email, optional consented analytics, and nothing else. No trackers, no cookies before you agree.",
+    "How amanyadav.dev handles contact-form messages. Traffic analytics and performance tracking are disabled.",
   alternates: { canonical: "/privacy" },
   openGraph: {
+    images: [SOCIAL_IMAGE],
     type: "website",
     url: `${SITE_URL}/privacy`,
     title: "Privacy Policy — Aman Yadav",
     description:
-      "The contact form sends an email and stores nothing. Analytics only run after you choose to allow them.",
+      "The contact form sends an email. Traffic analytics and performance tracking are disabled.",
   },
 };
 
@@ -66,9 +67,8 @@ const sections = [
         held in memory only, so it disappears when the function instance stops.
       </>,
       <>
-        The stylesheet pulls three webfonts from Google Fonts, which means your browser makes a request to Google and
-        Google sees your IP address as part of serving that file. If you block <code>fonts.googleapis.com</code>, the
-        site still renders with the fallback fonts.
+        The webfonts are bundled at build time and served by this website. Your browser does not need to request
+        them from Google Fonts. If fonts cannot load, the site uses fallback fonts.
       </>,
       <>
         The 3D object on the home page loads one lighting asset from <code>raw.githack.com</code>, a CDN the three.js
@@ -79,17 +79,14 @@ const sections = [
   },
   {
     id: "analytics",
-    title: "Analytics, and the consent choice",
+    title: "Analytics",
     body: [
       <>
-        Traffic measurement is off until you say otherwise. If you click “Allow analytics”, the page loads Vercel Web
-        Analytics and Speed Insights, which record aggregate page views and timing numbers. They are first-party and
-        cookieless, so they do not build a cross-site profile of you. Your choice is remembered in your browser’s
-        local storage under <code>amanyadav.analytics-consent</code>, and nothing is sent before you choose.
+        Traffic analytics and performance tracking are disabled. The site does not load Vercel Web Analytics or
+        Speed Insights, and it does not display an analytics consent banner.
       </>,
       <>
-        “Essential only” keeps the site exactly as it is now: no analytics scripts are fetched at all. You can change
-        your mind by clearing site data, and I will happily add a visible switch if you email me and ask.
+        An analytics preference saved by an earlier version of the site is no longer used.
       </>,
     ],
   },
@@ -99,7 +96,7 @@ const sections = [
     body: [
       <>
         Nobody buys or sells data here. The providers named above — Resend for email delivery, Vercel for hosting and
-        optional analytics, Google for fonts — process it on their side under their own policies. I do not run
+        the external CDN for 3D lighting — process it on their side under their own policies. I do not run
         advertising pixels, and I do not share your message with anyone else unless you hire me and the work pulls in
         a contractor or a client you already know about.
       </>,

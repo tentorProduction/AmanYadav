@@ -5,17 +5,16 @@ import { Marquee } from "@/components/Marquee";
 import { StatementSection } from "@/components/StatementSection";
 import { RecentWork } from "@/components/RecentWork";
 import { KeyFigures } from "@/components/KeyFigures";
-import { Testimonial } from "@/components/Testimonial";
 import { ContactFooter } from "@/components/ContactFooter";
 import { MotionController } from "@/components/MotionController";
 import { JsonLd } from "@/components/JsonLd";
-import { HOME_DESCRIPTION, HOME_TITLE, SITE_TITLE, SITE_URL, UPDATED } from "@/lib/seo";
+import { HOME_DESCRIPTION, HOME_TITLE, SITE_TITLE, SITE_URL, SOCIAL_IMAGE, UPDATED } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: HOME_TITLE,
+  title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
-  alternates: { canonical: "/" },
-  openGraph: { url: SITE_URL, title: HOME_TITLE, description: HOME_DESCRIPTION },
+  alternates: { canonical: `${SITE_URL}/` },
+  openGraph: { url: SITE_URL, title: HOME_TITLE, description: HOME_DESCRIPTION, images: [SOCIAL_IMAGE] },
 };
 
 const WEBPAGE_JSONLD = {
@@ -29,10 +28,6 @@ const WEBPAGE_JSONLD = {
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: { "@id": `${SITE_URL}/#person` },
   dateModified: UPDATED.home,
-  speakable: {
-    "@type": "SpeakableSpecification",
-    cssSelector: [".statement-copy", ".statement-loc", ".statement-note"],
-  },
 };
 
 export default function Home() {
@@ -47,7 +42,6 @@ export default function Home() {
         <StatementSection />
         <RecentWork />
         <KeyFigures />
-        <Testimonial />
       </main>
       <ContactFooter />
     </>

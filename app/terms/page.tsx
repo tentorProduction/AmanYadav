@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { ContactFooter } from "@/components/ContactFooter";
 import { JsonLd } from "@/components/JsonLd";
-import { EMAIL, SITE_TITLE, SITE_URL, UPDATED, breadcrumbs } from "@/lib/seo";
+import { EMAIL, SITE_TITLE, SITE_URL, SOCIAL_IMAGE, UPDATED, breadcrumbs } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "The terms for using amanyadav.dev: what the site is for, what you can do with its content, and the limits around the contact form.",
   alternates: { canonical: "/terms" },
   openGraph: {
+    images: [SOCIAL_IMAGE],
     type: "website",
     url: `${SITE_URL}/terms`,
     title: "Terms of Use — Aman Yadav",
