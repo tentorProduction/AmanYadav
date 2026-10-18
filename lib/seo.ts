@@ -27,7 +27,8 @@ export const HOME_DESCRIPTION =
 // everything changed on every deploy, which devalues lastmod.
 export const UPDATED = {
   home: "2026-10-14",
-  projects: "2026-10-14",
+  projects: "2026-10-18",
+  portfolio: "2026-10-18",
   contact: "2026-10-14",
   privacy: "2026-10-14",
   terms: "2026-09-30",

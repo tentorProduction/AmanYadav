@@ -4,7 +4,8 @@ const canonical = 'https://www.amanyadav.dev';
 let failures = 0;
 const titles = new Set();
 const internalPaths = new Set();
-for (const path of ['/', '/projects', '/contact', '/privacy', '/terms']) {
+const paths = ['/', '/projects', '/projects/portfolio', '/contact', '/privacy', '/terms'];
+for (const path of paths) {
   try {
     const response = await fetch(base + path, { signal: AbortSignal.timeout(20000) });
     const html = await response.text();
@@ -37,7 +38,7 @@ for (const path of ['/', '/projects', '/contact', '/privacy', '/terms']) {
 for (const path of ['/robots.txt', '/sitemap.xml']) {
   const response = await fetch(base + path);
   const body = await response.text();
-  try { assert.equal(response.status,200); assert.ok(body.includes(canonical)); if(path.endsWith('.xml')) {const urls=[...body.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);assert.equal(urls.length,5);assert.equal(new Set(urls).size,5);assert.ok(urls.every(u=>u.startsWith(canonical)));} console.log(path,'PASS'); } catch(error) { failures++; console.error(path,error.message); }
+  try { assert.equal(response.status,200); assert.ok(body.includes(canonical)); if(path.endsWith('.xml')) {const urls=[...body.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);assert.deepEqual(urls.sort(),paths.map(p=>canonical+p).sort());} console.log(path,'PASS'); } catch(error) { failures++; console.error(path,error.message); }
 }
 const missing = await fetch(base + '/definitely-not-a-page');
 if (missing.status !== 404) { failures++; console.error('404 route failed'); }

@@ -102,6 +102,11 @@ export default function ProjectsPage() {
           ))}
         </section>
 
+        <section className="page-cta" aria-labelledby="portfolio-study-heading">
+          <h2 id="portfolio-study-heading">Behind this portfolio.</h2>
+          <Link className="contact-button" href="/projects/portfolio">Next.js &amp; Three.js case study <span aria-hidden="true">→</span></Link>
+        </section>
+
         <section className="page-cta">
           <h2>Want something like this built?</h2>
           <Link className="contact-button" href="/contact">Start a conversation <span>→</span></Link>

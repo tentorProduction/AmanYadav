@@ -1,5 +1,7 @@
 # Actions after deployment
 
+Update 2026-10-18: the October 14 deployment is live. Connected GSC inspection confirms canonical Projects, Contact and Terms are indexed; the three discovered-not-indexed examples are their old non-www aliases. Sitemap Success / five pages / last read October 14. See SEARCH_CONSOLE_REVIEW_2026-10-18.md for measured performance and exact URLs. No need to submit those aliases for indexing or validate expected redirects. The new /projects/portfolio case study needs deployment before its own URL inspection; the sitemap will then list six pages.
+
 1. Confirm https://www.amanyadav.dev is the Vercel primary domain and inspect all alternate-host redirects. Current HTTP apex has two intentional 308 hops; a single hop is preferable where the hosting dashboard supports it. Keep HTTPS and existing working routes.
 2. Deploy this source. Fetch the five public pages, /robots.txt and /sitemap.xml again. Run `node scripts/seo-check.mjs https://www.amanyadav.dev`.
 3. In Search Console, export the three discovered-not-indexed URLs and four redirect URLs with their exact reasons, last crawl dates and Google-selected canonical. The historical totals alone are insufficient to diagnose them.

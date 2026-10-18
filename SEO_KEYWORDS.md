@@ -1,5 +1,7 @@
 # Keyword map
 
+2026-10-18 live GSC baseline: 7 clicks, 31 impressions, 22.6% CTR, average position 4.7 for the selected 3-month range (available chart Sep 27–Oct 15). Only two visible query rows: amanyadav and aman yadav linkedin, one impression each. Hidden low-volume queries prevent treating this as the full query inventory. Added /projects/portfolio for evidence-backed Next.js portfolio, Three.js integration, reduced-motion and contact API implementation intent. No volume or ranking guarantee. See SEARCH_CONSOLE_REVIEW_2026-10-18.md for the growth plan toward more relevant long-tail queries.
+
 | Page | Candidate queries | Intent / evidence |
 |---|---|---|
 | / | Aman Yadav; Aman Yadav developer; Aman Yadav portfolio; full-stack developer Nepal; web developer Janakpur | Identity and hiring; role/location provided by user, clear in visible approach text and metadata. |

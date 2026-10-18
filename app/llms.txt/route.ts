@@ -14,6 +14,7 @@ export function GET() {
     "",
     `- [Home](${SITE_URL}/): Overview, approach and selected work.`,
     `- [Projects](${SITE_URL}/projects): All ${liveProjects.length} live products, each linking to the deployed site.`,
+    `- [Portfolio implementation](${SITE_URL}/projects/portfolio): Source-backed notes on Next.js, Three.js, accessible motion and the contact API.`,
     `- [Contact](${SITE_URL}/contact): Project enquiry form, direct email and answers to common questions.`,
     `- [Privacy Policy](${SITE_URL}/privacy): What the site collects — an emailed message and nothing stored.`,
     `- [Terms of Use](${SITE_URL}/terms): Usage terms for the site and the enquiry form.`,

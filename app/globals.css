@@ -209,6 +209,7 @@ button { font:inherit; }
 .page-lede { margin:26px 0 0; max-width:54ch; font-size:clamp(15px,1.25vw,18px); line-height:1.6; color:#45453f; }
 .page-cta { margin:clamp(56px,9vh,104px) 0 0; padding:clamp(36px,5vw,60px) 0; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; }
 .page-cta h2 { margin:0; font-family:"Instrument Serif",serif; font-weight:400; font-size:clamp(28px,3.8vw,52px); line-height:1.02; }
+.page-cta .contact-button { position:static; margin-top:0; }
 
 /* Projects grid */
 .projects-grid { margin-top:clamp(46px,7vh,80px); display:grid; grid-template-columns:repeat(auto-fit,minmax(288px,1fr)); gap:clamp(16px,2.1vw,28px); }
