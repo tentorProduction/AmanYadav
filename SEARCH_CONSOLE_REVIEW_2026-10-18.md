@@ -1,5 +1,11 @@
 # amanyadav.dev — live Search Console review
 
+## Completed after GitHub deployment
+
+Commit 9147282 was pushed to origin/main; Vercel's GitHub status reported success. Production /projects/portfolio now returns 200 and the expanded six-page production SEO suite passes. The updated sitemap was resubmitted in Search Console: submitted/read October 18, Success, **6 discovered pages**. Google's live URL test for https://www.amanyadav.dev/projects/portfolio reports **URL is available to Google / Page can be indexed**, with one valid Breadcrumbs item. Request indexing completed with **Indexing requested** and confirmation that the URL was added to a priority crawl queue. This is a request, not confirmation of indexing or rankings. Manual Actions and Security Issues were subsequently inspected: both report **No issues detected**. Existing intentional redirects were left intact; no redundant requests were sent for already-indexed destinations.
+
+The sections below preserve the earlier baseline observations; this completion note supersedes their statements that the case study was local and Manual Actions/Security detail reports had not yet been inspected.
+
 Reviewed 2026-10-18 through the owner's connected Google Search Console session. CapGen was inspected briefly before the owner corrected the target; no CapGen code, deployment or Search Console setting was changed.
 
 ## What Google actually reports

@@ -1,5 +1,7 @@
 # Actions after deployment
 
+Completed October 18 after push/deployment: the case study is live, all six production pages pass the SEO check, sitemap resubmission succeeded with six discovered pages, Google's live URL test passed, and its indexing request was accepted into the priority crawl queue. Manual Actions and Security Issues both report no issues. Allow time for crawling and report processing; do not repeatedly submit the same URL or try to index intentional redirects.
+
 Update 2026-10-18: the October 14 deployment is live. Connected GSC inspection confirms canonical Projects, Contact and Terms are indexed; the three discovered-not-indexed examples are their old non-www aliases. Sitemap Success / five pages / last read October 14. See SEARCH_CONSOLE_REVIEW_2026-10-18.md for measured performance and exact URLs. No need to submit those aliases for indexing or validate expected redirects. The new /projects/portfolio case study needs deployment before its own URL inspection; the sitemap will then list six pages.
 
 1. Confirm https://www.amanyadav.dev is the Vercel primary domain and inspect all alternate-host redirects. Current HTTP apex has two intentional 308 hops; a single hop is preferable where the hosting dashboard supports it. Keep HTTPS and existing working routes.
